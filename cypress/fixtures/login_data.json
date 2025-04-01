@@ -1,0 +1,24 @@
+{
+    "url":"https://gatehouse-qa.dynamatix.com/",
+    "userEmails":[{
+      "validemail":"varun.uw@dynamatix.com",
+      "submitter" : "automationtesting@riskhawk.net",
+      "level1approver": "palak.bansal@riskhawk.net",
+      "invalidemail":"varun@dynamatix.com",
+      "singlecharacteremail":"p",
+      "loginAttemptsemail":"careers@TFIBagundhali.in",
+      "emailfor5Attempts":"testbasicdyn@gmail.com",
+      "forgetpasswordemail":"Riskhawk@cypress.com"
+  }],
+      "passwords":[{
+      "validpassword":"Pass@123Pass@123",
+      "submitterpassword":"PBtest@123456",
+      "level1approverpassword": "welcome123456",
+      "invalidpassword":"Pass@pass@123",
+      "singlecharacterpassword":"S",
+      "passwordfor5Attempts":"BT@123456"
+  }],
+
+  "changecompanyname" : "Automation Testing"
+  
+}
