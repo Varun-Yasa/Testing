@@ -1,54 +1,55 @@
 class LoginPage{
 
-    elements = {
-    
-        userEmailField:()=> cy.get("input[placeholder='Email address']"),
-        passwordField:()=> cy.get("input[placeholder='Password']"),
-        loginButton:()=> cy.get(".p-button-label"),
-        invalidErrorMessage:()=> cy.get("[data-pc-name='message']"),
-        
-    }
-    
+    txtUserName = "input[placeholder='Email address']";
+    txtPassword = "input[placeholder='Password']";
+    btnSignIn = "button[type='button']";
+    NotFoundErrorMessage = ".p-message-detail";
+    InvalidPwdErrorMessage = ".p-message-detail";
+
+
     loadFixtures(){
         cy.fixture('login_data').then((LoginTestData) => {
         this.loginjsondata = LoginTestData;
         });    
     }
-    
+
     openApplication() {
         cy.visit('https://gatehouse-qa.dynamatix.com/');
     };
     
-    pageTitle(){
-        cy.title().should('include','GB NG').then((title)=>{
-        cy.log("Page title : "+ title);        
-        });
+    verifypageTitle(){
+        cy.title().should('include','GB NG');
     };
    
     login(emailaddress, password){
         this.openApplication();
         this.enterLoginEmail(emailaddress);
         this.enterLoginPassword(password);
-        this.clickOnLoginButton();
+        this.clickOnSignInButton();
       }
     
     enterLoginEmail(useremail){
-        this.elements.userEmailField().type(useremail);
+        cy.get(this.txtUserName).type(useremail);
     }
     
     enterLoginPassword(password){
-        this.elements.passwordField().type(password);
+        cy.get(this.txtPassword).type(password);
     }
     
 
-    
-    clickOnLoginButton(){
-        this.elements.loginButton().click();        
+
+    clickOnSignInButton(){
+       cy.get(this.btnSignIn).click();    
     }
     
-    validateTheInvalidErrorMessage() {
-        this.elements.invalidErrorMessage().invoke('text')
-        .should('contain', 'account not found');
+    validateNotFoundErrorMessage() {
+        cy.get(this.NotFoundErrorMessage).should('contain','account not found')
+        
+    }
+
+    validateInvalidPwdErrorMessage() {
+        cy.get(this.InvalidPwdErrorMessage).should('contain','Password is invalid for account');
+        
     }
 
 

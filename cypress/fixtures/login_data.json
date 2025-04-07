@@ -1,17 +1,15 @@
 {
     "url":"https://gatehouse-qa.dynamatix.com/",
-    "userEmails":[{
-      "validemail":"varun.uw@dynamatix.com",
-
-      "invalidemail":"varun@dynamatix.com"
+    
       
-  }],
-      "passwords":[{
-      "validpassword":"Pass@123Pass@123",
+    "validemail":"varun.uw@dynamatix.com",
       
-      "invalidpassword":"Pass@pass@123"
+    "invalidemail":"varun@dynamatix.com",
+     
       
-  }],
+    "validpassword": "Pass@123Pass@123",
+    "invalidpassword":"Pass@pass@123",
+      
 
   "changecompanyname" : "Automation Testing"
   
