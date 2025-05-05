@@ -64,11 +64,18 @@ describe('To validate that the user is redirected to the gatehouse Login page wh
     loginpage.validateNotFoundErrorMessage();
     
   });
-  
+
   it('verify login with invalid username and invalid password credentials', () => {
     loginpage.openApplication();
     loginpage.login(loginpage.loginjsondata.invalidemail, loginpage.loginjsondata.invalidpassword);
     loginpage.validateNotFoundErrorMessage();
+    
+  });
+
+  it('verify login with invalid email formate', () => {
+    loginpage.openApplication();
+    loginpage.login(loginpage.loginjsondata.invalidEmailFormate, loginpage.loginjsondata.invalidpassword);
+    loginpage.validateIncorrectemailErrorMessage();
     
   });
   

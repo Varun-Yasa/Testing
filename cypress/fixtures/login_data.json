@@ -9,6 +9,8 @@
       
     "validpassword": "Pass@123Pass@123",
     "invalidpassword":"Pass@pass@123",
+
+    "invalidEmailFormate" : "varun",
       
 
   "changecompanyname" : "Automation Testing"

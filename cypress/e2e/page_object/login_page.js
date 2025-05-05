@@ -9,6 +9,8 @@ class LoginPage{
     rememberMeCheckbox = '#remember';
     dynamatixLogo = "img[alt='Dynamatix']";
     footerCopyrightText = "div.footer span";
+    IncorrectemailErrorMessage = ".p-message-detail";
+
 
 
     loadFixtures(){
@@ -51,6 +53,11 @@ class LoginPage{
         
     }
 
+    validateIncorrectemailErrorMessage() {
+        cy.get(this.IncorrectemailErrorMessage).should('contain','Provided email is not a valid email')
+        
+    }
+
     validateInvalidPwdErrorMessage() {
         cy.get(this.InvalidPwdErrorMessage).should('contain','Password is invalid for account');
         
@@ -75,6 +82,7 @@ class LoginPage{
           .should('be.visible')
           .and('contain.text', 'Copyright 2025');
     }
+
 
 
 
