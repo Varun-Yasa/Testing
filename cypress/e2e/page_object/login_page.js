@@ -5,6 +5,10 @@ class LoginPage{
     btnSignIn = "button[type='button']";
     NotFoundErrorMessage = ".p-message-detail";
     InvalidPwdErrorMessage = ".p-message-detail";
+    Logo = "img[alt='gatehouse_bank_logo']";
+    rememberMeCheckbox = '#remember';
+    dynamatixLogo = "img[alt='Dynamatix']";
+    footerCopyrightText = "div.footer span";
 
 
     loadFixtures(){
@@ -51,6 +55,27 @@ class LoginPage{
         cy.get(this.InvalidPwdErrorMessage).should('contain','Password is invalid for account');
         
     }
+
+    validateLogoVisibility(){
+        cy.get(this.Logo).should('be.visible');
+    }
+    checkRememberMe() {
+        cy.get(this.rememberMeCheckbox).check().should('be.checked');
+    }
+    
+    uncheckRememberMe() {
+        cy.get(this.rememberMeCheckbox).uncheck().should('not.be.checked');
+    }
+    validateDynamatixLogoVisibility() {
+        cy.get(this.dynamatixLogo).should('be.visible');
+    }
+
+    validateFooterCopyright() {
+        cy.get(this.footerCopyrightText)
+          .should('be.visible')
+          .and('contain.text', 'Copyright 2025');
+    }
+
 
 
     } module.exports = new LoginPage();
