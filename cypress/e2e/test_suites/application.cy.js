@@ -1,10 +1,10 @@
 import homepage from '../page_object/home_page';
 import loginpage from '../page_object/login_page';
-import applicationpage from '../page_object/application_page';
+import QueuePage from '../page_object/queue_page';
 
 before(() => {
   loginpage.loadFixtures();
-  applicationpage.loadFixtures();
+  QueuePage.loadFixtures();
 })
 
 
@@ -14,7 +14,7 @@ describe('To validate the Application Queue', () => {
     loginpage.openApplication();
     loginpage.login(loginpage.loginjsondata.validemail, loginpage.loginjsondata.validpassword);
     cy.wait(7000);
-    applicationpage.clickApplication();
+    QueuePage.clickApplication();
     });
   
   });

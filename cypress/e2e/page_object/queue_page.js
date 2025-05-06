@@ -1,4 +1,4 @@
-class ApplicationPage {
+class QueuePage {
     applicationBlock = "div.scrollable";
     applicationID = "span.font-bold";
     financeAmount = "span.text-primary";
@@ -27,4 +27,4 @@ class ApplicationPage {
     }
 }
 
-module.exports = new ApplicationPage();
+module.exports = new QueuePage();
