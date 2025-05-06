@@ -1,4 +1,4 @@
-class LoginPage{
+class loginPage{
 
     txtUserName = "input[placeholder='Email address']";
     txtPassword = "input[placeholder='Password']";
@@ -9,6 +9,10 @@ class LoginPage{
     rememberMeCheckbox = '#remember';
     dynamatixLogo = "img[alt='Dynamatix']";
     footerCopyrightText = "div.footer span";
+    IncorrectemailErrorMessage = ".p-message-detail";
+    lnkForgotpwd = "a[href='#']";
+    txtSigninText = "div[class='form-wrapper'] p";
+
 
 
     loadFixtures(){
@@ -51,6 +55,11 @@ class LoginPage{
         
     }
 
+    validateIncorrectemailErrorMessage() {
+        cy.get(this.IncorrectemailErrorMessage).should('contain','Provided email is not a valid email')
+        
+    }
+
     validateInvalidPwdErrorMessage() {
         cy.get(this.InvalidPwdErrorMessage).should('contain','Password is invalid for account');
         
@@ -76,6 +85,15 @@ class LoginPage{
           .and('contain.text', 'Copyright 2025');
     }
 
+    clickforgotpwd(){
+        cy.get(this.lnkForgotpwd).click();
+    }
+
+    VerifyVisibilityOfSingInText(){
+        cy.get(this.txtSigninText).should('contain','Please sign in to your account');
+    }
 
 
-    } module.exports = new LoginPage();
+
+
+    } module.exports = new loginPage();
