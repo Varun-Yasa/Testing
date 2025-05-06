@@ -6,8 +6,7 @@ class HomePage {
       cy.get(this.btnLogOut).should('be.visible');
       
    }
-
-
+   
    logOut() {
       cy.get(this.btnLogOut).click();
    }

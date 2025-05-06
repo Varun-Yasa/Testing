@@ -16,12 +16,14 @@ describe('To validate that the user is redirected to the gatehouse Login page wh
     loginpage.verifypageTitle();
     
   });
+
   it('To verify the GateHouse Logo is displayed', () => {
     loginpage.openApplication();
     loginpage.validateLogoVisibility();
     cy.wait(2000);
     
   });
+  
   it('verify that Remember Me checkbox can be checked', () => {
     loginpage.openApplication();
     loginpage.checkRememberMe();
