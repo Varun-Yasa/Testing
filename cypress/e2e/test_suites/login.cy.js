@@ -2,6 +2,7 @@
 
 import homepage from '../page_object/home_page';
 import loginpage from '../page_object/login_page';
+import forgotpwd from '../page_object/forgot_pwd_page';
 
 
 before(() => {
@@ -19,8 +20,7 @@ describe('To validate that the user is redirected to the gatehouse Login page wh
   it('To verify the GateHouse Logo is displayed', () => {
     loginpage.openApplication();
     loginpage.validateLogoVisibility();
-    cy.wait(2000);
-    
+
   });
   it('verify that Remember Me checkbox can be checked', () => {
     loginpage.openApplication();
@@ -78,7 +78,12 @@ describe('To validate that the user is redirected to the gatehouse Login page wh
     loginpage.validateIncorrectemailErrorMessage();
     
   });
-  
+
+  it('verify forgot password link is redirecting to correct page', () => {
+    loginpage.openApplication();
+    loginpage.clickforgotpwd();
+    forgotpwd.validateresetpwd();
+  });
 
   
 })
