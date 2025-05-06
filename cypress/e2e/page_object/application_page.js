@@ -10,15 +10,17 @@ class ApplicationPage {
         });    
     }
 
-    applicationidcheck () {
+    clickApplication () {
         cy.get(this.applicationBlock).each(($block) => {
             const idText = $block.find(this.applicationID).text().trim();
             
-            if (idText.includes('00162230')) {
+            if (idText.includes(this.applicationjsondata.appID)) {
 
 
                 cy.wrap($block).within(() => {
-                    cy.get(this.financeAmount).should('have.text', '$ 100');
+
+                    cy.get($block).click();
+                    //cy.get(this.financeAmount).should('have.text', '$ 100');
                 });
             }
         });

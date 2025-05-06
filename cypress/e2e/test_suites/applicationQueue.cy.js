@@ -4,18 +4,17 @@ import applicationpage from '../page_object/application_page';
 
 before(() => {
   loginpage.loadFixtures();
-
+  applicationpage.loadFixtures();
 })
 
 
-describe('To vidate the Application Queue', () => {
+describe('To validate the Application Queue', () => {
   
-  it('verify login with valid username and password credentials', () => {
+  it('login and open application', () => {
     loginpage.openApplication();
     loginpage.login(loginpage.loginjsondata.validemail, loginpage.loginjsondata.validpassword);
-
     cy.wait(7000);
-    applicationpage.applicationidcheck();
+    applicationpage.clickApplication();
     });
   
   });
